@@ -39,8 +39,9 @@ public class BaiTH4_4 extends javax.swing.JFrame {
         tblTaiKhoan = new javax.swing.JTable();
         btnAdd = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
-        btnClear = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         lblMain = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,12 +90,19 @@ public class BaiTH4_4 extends javax.swing.JFrame {
         });
 
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
-        btnClear.setText("Clear");
+        btnDelete.setText("Delete Row");
 
         lblMain.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblMain.setForeground(new java.awt.Color(51, 51, 255));
         lblMain.setText("QUAN LY TAI KHOAN");
+
+        btnUpdate.setText("Update Row");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,9 +115,11 @@ public class BaiTH4_4 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnAdd)
-                                .addGap(126, 126, 126)
-                                .addComponent(btnClear)
+                                .addGap(45, 45, 45)
+                                .addComponent(btnDelete)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnUpdate)
+                                .addGap(39, 39, 39)
                                 .addComponent(btnExit))
                             .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
@@ -153,7 +163,8 @@ public class BaiTH4_4 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnExit)
-                    .addComponent(btnClear))
+                    .addComponent(btnDelete)
+                    .addComponent(btnUpdate))
                 .addGap(37, 37, 37))
         );
 
@@ -161,23 +172,36 @@ public class BaiTH4_4 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     DefaultTableModel bang = new DefaultTableModel();
-    
+
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         String number = txtNumber.getText();
         String name = txtName.getText();
         String money = txtMoney.getText();
-        
-        if (!number.isEmpty() || !name.isEmpty() || !money.isEmpty()) {
-            bang.addRow(new Object[]{number, name, money});
-            txtNumber.setText("");
-            txtName.setText("");
-            txtMoney.setText("");
-        }
-        else {
+
+        bang = (DefaultTableModel) tblTaiKhoan.getModel();
+
+        if (!number.isEmpty() && !name.isEmpty() && !money.isEmpty()) {
+            try {
+                Double.valueOf(money);
+                
+                bang.insertRow(0, new Object[]{number, name, money});
+
+                txtNumber.setText("");
+                txtName.setText("");
+                txtMoney.setText("");
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(rootPane, "Money khong the la chu", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Thieu thong tin number, name hoac money", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,8 +240,9 @@ public class BaiTH4_4 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMain;
     private javax.swing.JLabel lblMoney;
