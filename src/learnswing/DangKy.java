@@ -4,6 +4,7 @@
  */
 package learnswing;
 
+import bai5.BaiTH5_1;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -11,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author TGDD
  */
-public class BaiTH7 extends javax.swing.JFrame {
+public class DangKy extends javax.swing.JFrame {
 
     /**
      * Creates new form BaiTH7
      */
-    public BaiTH7() {
+    public DangKy() {
         initComponents();
     }
 
@@ -93,9 +94,9 @@ public class BaiTH7 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(179, 179, 179)
                         .addComponent(btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(168, 168, 168)
+                        .addGap(157, 157, 157)
                         .addComponent(btnCancel)))
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,6 +133,7 @@ public class BaiTH7 extends javax.swing.JFrame {
         } else {
             if (String.valueOf(pwdPassword.getPassword()).equals(String.valueOf(pwdConfirm.getPassword()))) {
                 JOptionPane.showMessageDialog(rootPane, "Dang ki thanh cong.");
+                new BaiTH5_1().setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Xac nhan mat khau khong khop.", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -160,20 +162,23 @@ public class BaiTH7 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BaiTH7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DangKy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BaiTH7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DangKy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BaiTH7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DangKy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BaiTH7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DangKy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BaiTH7().setVisible(true);
+                new DangKy().setVisible(true);
             }
         });
     }
