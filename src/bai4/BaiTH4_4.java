@@ -65,7 +65,7 @@ public class BaiTH4_4 extends javax.swing.JFrame {
 
         tblTaiKhoan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
+                {"0563184700", "Phuoc", "50000"},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -97,12 +97,22 @@ public class BaiTH4_4 extends javax.swing.JFrame {
         });
 
         btnDelete.setText("Delete Row");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         lblMain.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblMain.setForeground(new java.awt.Color(51, 51, 255));
         lblMain.setText("QUAN LY TAI KHOAN");
 
         btnUpdate.setText("Update Row");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,7 +194,7 @@ public class BaiTH4_4 extends javax.swing.JFrame {
         if (!number.isEmpty() && !name.isEmpty() && !money.isEmpty()) {
             try {
                 Double.valueOf(money);
-                
+
                 bang.insertRow(0, new Object[]{number, name, money});
 
                 txtNumber.setText("");
@@ -202,6 +212,46 @@ public class BaiTH4_4 extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblTaiKhoan.getSelectedRow();
+        if (selectedRow != -1) {
+            String number = tblTaiKhoan.getValueAt(selectedRow, 0).toString();
+            if (JOptionPane.showConfirmDialog(rootPane,
+                    "Bạn có chắc muốn xóa Number: " + number + "?",
+                    "Xác Nhận Xóa", JOptionPane.YES_NO_OPTION)
+                    == JOptionPane.YES_OPTION) {
+                bang.removeRow(selectedRow);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Chua co ban ghi nao duoc chon.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblTaiKhoan.getSelectedRow();
+        if (selectedRow != -1) {
+            int choice = Integer.parseInt(JOptionPane.showInputDialog("Nhap cot can sua:"));
+            int i = choice - 1;
+            switch (i) {
+                case 0 -> {
+                    String newNumber = JOptionPane.showInputDialog("Nhap number moi:");
+                    tblTaiKhoan.setValueAt(newNumber, selectedRow, i);
+                }
+                case 1 -> {
+                    String newName = JOptionPane.showInputDialog("Nhap name moi:");
+                    tblTaiKhoan.setValueAt(newName, selectedRow, i);
+                }
+                case 2 -> {
+                    String newMoney = JOptionPane.showInputDialog("Nhap money moi:");
+                    tblTaiKhoan.setValueAt(newMoney, selectedRow, i);
+                }
+                default -> JOptionPane.showMessageDialog(rootPane, "Khong co cot thu " + choice, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
