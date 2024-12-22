@@ -126,7 +126,6 @@
                                   <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="chkShowPwd" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="lblPassword" alignment="0" min="-2" max="-2" attributes="0"/>

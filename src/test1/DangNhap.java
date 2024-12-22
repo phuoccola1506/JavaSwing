@@ -5,6 +5,7 @@
 package test1;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -178,11 +179,11 @@ public class DangNhap extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    static String adminUsername = "Phuoc";
+    static String adminPwd = "123456";
+
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String adminUsername = "Phuoc";
-        String adminPwd = "123456";
-
         String username = txtUsername.getText();
         String pwd = String.valueOf(txtPassword.getPassword());
 
@@ -191,6 +192,7 @@ public class DangNhap extends javax.swing.JFrame {
         } else {
             if (username.equals(adminUsername) && pwd.equals(adminPwd)) {
                 JOptionPane.showMessageDialog(rootPane, "Dang nhap thanh cong!");
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Email hoac password khong dung!", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -234,11 +236,7 @@ public class DangNhap extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DangNhap().setVisible(true);
-            }
-        });
+        SwingUtilities.invokeLater(() -> new DangNhap().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

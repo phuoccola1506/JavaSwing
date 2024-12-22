@@ -33,9 +33,9 @@ public class QLSV extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         lblToday = new javax.swing.JLabel();
-        lblIcon = new javax.swing.JLabel();
         lblUserLogin = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblMain = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -88,23 +88,23 @@ public class QLSV extends javax.swing.JFrame {
         lblToday.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblToday.setText("Today:");
 
-        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/learnswing/image/Custom-Icon-Design-Pretty-Office-8-User-blue.48.png"))); // NOI18N
-        lblIcon.setText("jLabel3");
-
         lblUserLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblUserLogin.setText(" ");
+        lblUserLogin.setText("Phuoc");
 
         lblDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblDate.setText(" ");
+
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/learnswing/image/Custom-Icon-Design-Pretty-Office-8-User-blue.48.png"))); // NOI18N
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,15 +112,19 @@ public class QLSV extends javax.swing.JFrame {
                     .addComponent(lblUser))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                     .addComponent(lblUserLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(btnLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblIcon)
+                .addComponent(btnLogin)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUser)
@@ -397,18 +401,33 @@ public class QLSV extends javax.swing.JFrame {
         btnOpen.setText("Update");
         btnOpen.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnOpen.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnOpen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenActionPerformed(evt);
+            }
+        });
         tlbButton.add(btnOpen);
 
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test1/image/Graphicrating-Koloria-Trash.32.png"))); // NOI18N
         btnSave.setText("Delete");
         btnSave.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         tlbButton.add(btnSave);
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test1/image/Graphicrating-Koloria-Error.32.png"))); // NOI18N
         btnExit.setText("Exit");
         btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnExit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         tlbButton.add(btnExit);
 
         javax.swing.GroupLayout pnlSinhVienLayout = new javax.swing.GroupLayout(pnlSinhVien);
@@ -547,16 +566,88 @@ public class QLSV extends javax.swing.JFrame {
     private void btnSinhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSinhVienActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) pnlCard.getLayout();
-        
+
         layout.first(pnlCard);
     }//GEN-LAST:event_btnSinhVienActionPerformed
 
     private void btnGiaoVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiaoVienActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) pnlCard.getLayout();
-        
+
         layout.last(pnlCard);
     }//GEN-LAST:event_btnGiaoVienActionPerformed
+
+    private void btnOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblSinhVien.getSelectedRow();
+        if (selectedRow != -1) {
+            int choice = Integer.parseInt(JOptionPane.showInputDialog("Nhap cot can sua:"));
+            int i = choice - 1;
+            switch (i) {
+                case 0 -> {
+                    String newID = JOptionPane.showInputDialog("Nhap id moi:");
+                    tblSinhVien.setValueAt(newID, selectedRow, i);
+                }
+                case 1 -> {
+                    String newHoten = JOptionPane.showInputDialog("Nhap ho ten moi:");
+                    tblSinhVien.setValueAt(newHoten, selectedRow, i);
+                }
+                case 2 -> {
+                    String newIDLop = JOptionPane.showInputDialog("Nhap id lop moi:");
+                    tblSinhVien.setValueAt(newIDLop, selectedRow, i);
+                }
+                case 3 -> {
+                    String newHDT = JOptionPane.showInputDialog("Nhap he dao tao moi:");
+                    tblSinhVien.setValueAt(newHDT, selectedRow, i);
+                }
+                case 4 -> {
+                    String newNgaysinh = JOptionPane.showInputDialog("Nhap ngaysinh moi:");
+                    tblSinhVien.setValueAt(newNgaysinh, selectedRow, i);
+                }
+                case 5 -> {
+                    String newDiachi = JOptionPane.showInputDialog("Nhap dia chi moi:");
+                    tblSinhVien.setValueAt(newDiachi, selectedRow, i);
+                }
+                case 6 -> {
+                    String newGioitinh = JOptionPane.showInputDialog("Nhap gioi tinh moi:");
+                    tblSinhVien.setValueAt(newGioitinh, selectedRow, i);
+                }
+                case 7 -> {
+                    String newSDT = JOptionPane.showInputDialog("Nhap sdt moi:");
+                    tblSinhVien.setValueAt(newSDT, selectedRow, i);
+                }
+                default ->
+                    JOptionPane.showMessageDialog(rootPane, "Khong co cot thu " + choice, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnOpenActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblSinhVien.getSelectedRow();
+        if (selectedRow != -1) {
+            String number = tblSinhVien.getValueAt(selectedRow, 0).toString();
+            if (JOptionPane.showConfirmDialog(rootPane,
+                    "Bạn có chắc muốn xóa Number: " + number + "?",
+                    "Xác Nhận Xóa", JOptionPane.YES_NO_OPTION)
+                    == JOptionPane.YES_OPTION) {
+                bang.removeRow(selectedRow);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Chua co ban ghi nao duoc chon.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        new DangNhap().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -598,6 +689,7 @@ public class QLSV extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnGiaoVien;
     private javax.swing.JButton btnKhoa;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLop;
     private javax.swing.JButton btnMonHoc;
     private javax.swing.JButton btnNew;
@@ -616,7 +708,6 @@ public class QLSV extends javax.swing.JFrame {
     private javax.swing.JLabel lblGioiTinh;
     private javax.swing.JLabel lblHeDaoTao;
     private javax.swing.JLabel lblHoTen;
-    private javax.swing.JLabel lblIcon;
     private javax.swing.JLabel lblLop;
     private javax.swing.JLabel lblMaSinhVien;
     private javax.swing.JLabel lblMain;
